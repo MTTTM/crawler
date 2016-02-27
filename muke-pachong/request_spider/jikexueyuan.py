@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from bs4 import BeautifulSoup
+
 import requests
 import  re
 import string
@@ -31,6 +32,7 @@ class spider(object):
     #获取具体内容
     def getinfo(self,eachclass):
         info={}
+        #eachclass 是tag类型
         info['title']=eachclass.find("h2",class_="lesson-info-h2").find("a").get_text()
         info['content']=eachclass.find("div",class_="lesson-infor").find("p").get_text()
         timeandlevel=eachclass.find("div",class_="timeandicon").find_all("em")
